@@ -16,7 +16,7 @@ const App = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/notes');
+      const response = await axios.get('https://my-notes-app-backend-btwv.onrender.com/');
       setNotes(response.data);
     } catch (error) {
       console.error('Error fetching notes:', error);
