@@ -16,7 +16,7 @@ const App = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get('https://my-notes-app-backend-btwv.onrender.com/');
+      const response = await axios.get('https://my-notes-app-backend-btwv.onrender.com/notes');
       setNotes(response.data);
     } catch (error) {
       console.error('Error fetching notes:', error);
@@ -29,7 +29,7 @@ const App = () => {
 
   const handleSaveNote = async () => {
     try {
-      await axios.post('http://localhost:5000/notes', { content: note });
+      await axios.post('https://my-notes-app-backend-btwv.onrender.com/notes', { content: note });
       setNote('');
       fetchNotes();
     } catch (error) {
@@ -39,7 +39,7 @@ const App = () => {
 
   const handleDeleteNote = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/notes/${id}`);
+      await axios.delete(`https://my-notes-app-backend-btwv.onrender.com/notes/${id}`);
       fetchNotes();
     } catch (error) {
       console.error('Error deleting note:', error);
